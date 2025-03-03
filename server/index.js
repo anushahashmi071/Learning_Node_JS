@@ -1,14 +1,14 @@
-import { createServer } from "http"
-const server = createServer((request, response) => {
+const http = require("http")
+const server = http.createServer((request, response) => {
 
     response.writeHead(200, {
-        "content-type": "text/plain"
+        "content-type": "text/html"
     })
-    response.end("Serve is Working")
+    response.end("<h1>hi</h1>")
 
 })
 
-const PORT = 3000
+const PORT = process.env.PORT
 server.listen(PORT, (() => {
     console.log(`Server is running on ${PORT}`);
 }))
